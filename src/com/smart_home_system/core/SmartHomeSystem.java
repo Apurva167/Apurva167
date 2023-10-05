@@ -92,7 +92,7 @@ public class SmartHomeSystem {
          }
     	AutomatedTrigger trigger = new AutomatedTrigger(type,relation,value, action,devices.get(checkDeviceId));
         automatedTriggers.add(trigger);
-        //startAutomatedTriggerChecking();
+        startAutomatedTriggerChecking();
     }
     
     public void startAutomatedTriggerChecking() {
