@@ -7,11 +7,4 @@ public class Light extends Device{
 	        this.status = "off";
 	    }
 
-	    public void turnOn() {
-	        status = "on";
-	    }
-
-	    public void turnOff() {
-	        status = "off";
-	    }
 }
