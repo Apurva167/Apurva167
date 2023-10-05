@@ -7,8 +7,8 @@ import com.smart_home_system.devices.Device;
 import com.smart_home_system.devices.ThermoStat;
 
 public class AutomatedTrigger {
-	private final int triggerId;
-	private final String condition;
+    private final int triggerId;
+    private final String condition;
     private final String action;
     private final Device checkDevice;
     private int intervalInSeconds;
