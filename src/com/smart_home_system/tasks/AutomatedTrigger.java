@@ -1,20 +1,34 @@
 package com.smart_home_system.tasks;
 
 import java.util.Map;
+import java.util.TimerTask;
 
 import com.smart_home_system.devices.Device;
 import com.smart_home_system.devices.ThermoStat;
 
 public class AutomatedTrigger {
+	private final int triggerId;
 	private final String condition;
     private final String action;
-    private  Device checkDevice;
-    public AutomatedTrigger(String type,String relation,int value, String action,Device checkDevice) {
+    private final Device checkDevice;
+    private int intervalInSeconds;
+    TimerTask timerTask;
+    public AutomatedTrigger(String type,String relation,int value, String action,Device checkDevice,int triggerId,int interval) {
         this.condition = type+" "+relation+" "+value;
         this.action = action;
         this.checkDevice=checkDevice;
+        this.triggerId=triggerId;
+        this.setIntervalInSeconds(interval);
     }
-    
+    public TimerTask getTimerTask() {
+    	return timerTask;
+    }
+    public void setTimerTask(TimerTask task) {
+    	 timerTask=task;
+    }
+    public int getTriggerId() {
+    	return triggerId;
+    }
     public String getCondition() {
     	return condition;
     }
@@ -62,5 +76,11 @@ public class AutomatedTrigger {
         } else if (actionName.equals("TurnOff")) {
             devices.get(targetDeviceId).turnOff();
         }
-    }     
+    }
+	public int getIntervalInSeconds() {
+		return intervalInSeconds;
+	}
+	public void setIntervalInSeconds(int intervalInSeconds) {
+		this.intervalInSeconds = intervalInSeconds;
+	}     
 }
