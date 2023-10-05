@@ -35,7 +35,12 @@ public class AutomatedTrigger {
     public String getAction() {
     	return action;
     }
-
+    public int getIntervalInSeconds() {
+	 return intervalInSeconds;
+    }
+    public void setIntervalInSeconds(int intervalInSeconds) {
+	 this.intervalInSeconds = intervalInSeconds;
+    }  
     public boolean isTriggered() {
     	 String[] parts = condition.split(" ");
          ThermoStat thermostat=(ThermoStat)checkDevice;
@@ -77,10 +82,5 @@ public class AutomatedTrigger {
             devices.get(targetDeviceId).turnOff();
         }
     }
-	public int getIntervalInSeconds() {
-		return intervalInSeconds;
-	}
-	public void setIntervalInSeconds(int intervalInSeconds) {
-		this.intervalInSeconds = intervalInSeconds;
-	}     
+	   
 }
