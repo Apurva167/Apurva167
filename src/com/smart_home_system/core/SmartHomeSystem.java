@@ -16,8 +16,7 @@ import com.smart_home_system.tasks.AutomatedTrigger;
 import com.smart_home_system.tasks.ScheduledTask;
 
 public class SmartHomeSystem {
-	private Map<Integer, Device> devices;
-	private Map< Integer,String> idType;
+    private Map<Integer, Device> devices;
     private List<ScheduledTask> scheduledTasks;
     private List<AutomatedTrigger> automatedTriggers;
 
@@ -25,13 +24,11 @@ public class SmartHomeSystem {
         devices = new HashMap<>();
         scheduledTasks = new ArrayList<>();
         automatedTriggers = new ArrayList<>();
-        idType = new HashMap<>();
     }
 
     public void addDevice(int id, String type) {
         Device device = DeviceFactory.createDevice(id, type);
         devices.put(id, device);
-        idType.put(id,type);
     }
 
     public void turnOn(int id) {
@@ -88,8 +85,8 @@ public class SmartHomeSystem {
     
     public void addAutomatedTrigger(String type,String relation,int value, String action) {
     	int checkDeviceId=0;
-    	for(int x:idType.keySet()) {
-         	if(idType.get(x).equals(type)) {
+    	for(int x:devices.keySet()) {
+         	if(devices.get(x).getType().equals(type)) {
          		checkDeviceId=x;
          	}
          }
